@@ -1,0 +1,183 @@
+@charset "utf-8";
+/*
+.rounded-corners(@radius1: 7px, @radius2: 7px, @radius3: 7px, @radius4: 7px) {
+	-moz-border-radius: @radius1 @radius2 @radius3 @radius4;
+	-webkit-border-radius: @radius1 @radius2 @radius3 @radius4;
+	border-radius: @radius1 @radius2 @radius3 @radius4;
+}
+.box-shadow(@x: 0px, @y: 0px, @size: 5px, @color: #000) {
+	-moz-box-shadow: 		@arguments;
+	-webkit-box-shadow: 	@arguments;
+	box-shadow: 			@arguments;
+}
+.core-opacity(@op:100) {
+	opacity: (@op/100);
+	zoom: 1;
+}
+.constrain(@width: 960px) {
+	display: block;
+	width: @width;
+	margin: 0 auto;
+}
+*//* The image replacement styles */
+.ir {
+  display: block;
+  text-indent: -999em;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  text-align: left;
+  direction: ltr;
+}
+/**
+ * @mixin .hi-res-background-image() - Renders out css for hi res device pixel ratio.
+ * @param {String} @imagePath - The image path found in background: url(). e.g. '../img/myImage.png'
+ * @param {Size Value} - The target width of the image. e.g. 20px
+ * @param {Size Value} - The target height of the image. e.g. 30px
+ */
+/*
+	The general theme option styles.
+*/
+/*
+	Our theme fonts from fonts.com
+*/
+/****************************************************************************************************************************
+   _____ __  ______    __    __       _    _____________       ______  ____  ____ ______   ____________  ____    ___________
+  / ___//  |/  /   |  / /   / /      | |  / /  _/ ____| |     / / __ \/ __ \/ __ /_  __/  / ___/_  __\ \/ / /   / ____/ ___/
+  \__ \/ /|_/ / /| | / /   / /       | | / // // __/  | | /| / / /_/ / / / / /_/ // /     \__ \ / /   \  / /   / __/  \__ \ 
+ ___/ / /  / / ___ |/ /___/ /___     | |/ _/ // /___  | |/ |/ / ____/ /_/ / _, _// /     ___/ // /    / / /___/ /___ ___/ / 
+/____/_/  /_/_/  |_/_____/_____/     |___/___/_____/  |__/|__/_/    \____/_/ |_|/_/     /____//_/    /_/_____/_____//____/  
+                                                                                                                            
+ (MOBILE FIRST)
+****************************************************************************************************************************/
+::-moz-selection {
+  background: #333333;
+  color: #fcff00;
+  text-shadow: none;
+}
+::selection {
+  background: #333333;
+  color: #fcff00;
+  text-shadow: none;
+}
+a:link {
+  -webkit-tap-highlight-color: #fcff00;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  margin: 0;
+}
+a:link,
+a:visited {
+  color: #ffffff;
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  color: #fcff00;
+}
+html {
+  color: #ffffff;
+  /*background: url('../img/stripe_2.png') #000 repeat;*/
+
+  background: #000;
+  font-family: 'Century Gothic W01', Arial, sans-serif;
+}
+.content-bucket {
+  padding: 10px;
+}
+#wrapper {
+  /*background: url('../img/bgGradient.png') repeat-x bottom;*/
+
+  border-right: 1px solid #141414;
+  border-left: 1px solid #141414;
+  padding: 10px 0px 50px;
+}
+header {
+  position: relative;
+  text-align: center;
+}
+header h1 {
+  color: #363636;
+  line-height: 1;
+}
+header h1 span.first-name {
+  font-family: 'Century Gothic W01 Bold', Arial, sans-serif;
+  color: #939393;
+}
+header h1 span.title {
+  font-size: .3em;
+  color: #fcff00;
+  display: block;
+  line-height: 2;
+}
+header h1 span.title em {
+  color: #696969;
+}
+header nav {
+  margin: 15px 0;
+}
+header nav ul {
+  margin: 0;
+}
+header nav li {
+  /*float: left;*/
+
+  display: inline-block;
+}
+header nav li a {
+  font-size: .9em;
+  display: block;
+  padding: 10% 20%;
+}
+#welcome h2 {
+  line-height: 1;
+  font-size: 3em;
+  margin: 10px 0;
+}
+#projects dt {
+  background: #292929;
+  font-size: 1.75em;
+  line-height: 1.15;
+  padding: 15px 15px;
+}
+#projects dd {
+  font-size: .85em;
+  margin: 0;
+}
+#projects dd .technologies {
+  color: #606060;
+}
+#projects .screenshots {
+  margin: 0;
+  padding: 0;
+}
+#projects .screenshots li {
+  list-style-type: none;
+  margin: 2%;
+}
+#projects .screenshots li img {
+  border: 3px solid #fff;
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+@media only screen and (min-width: 700px) {
+  
+}
+/***************************************
+* FLOAT CLEARFIX STYLES
+****************************************/
+/* Use this to clear any floats. Allows for more semantic markup. No need to add "span" or "br" with clears in your markup. */
+/* Target the parent container of the floated element. */
+nav ul:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}

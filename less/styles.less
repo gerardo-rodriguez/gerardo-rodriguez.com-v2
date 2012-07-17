@@ -1,0 +1,195 @@
+@charset "utf-8";
+
+// ------------------------------------ !MASTER STYLES ------------------------------------
+// This stylesheet serves as the foundation for all styles within this application
+// CORE VARIABLES: used for controlling individual elements in a theme
+// CORE THEME: used as collection of variables that make up a unified theme or 'skin'
+// MIXINS: used for establishing reusable classes
+// CORE LAYOUT: used to control positioning layout
+// 
+// AUTHOR: Gerardo Rodriguez (gerardo.rodriguez@dachisgroup.com)
+// 
+// IMPORTANT! - These styles were originally written in LESS and compiled with the LESS.app. All modifications should be done in the existing .less file, not the .css file
+// 
+
+@import 'core-mixins.less';
+@import 'project-mixins.less';
+
+// ------------------------------------ !CORE THEME ----------------------------------------
+// Theme-able options. Does not include layout related vars
+// Naming convention can be specific to an element: @theme-header-background: @core-color-gray
+// Naming format: @theme-[element]-[property]
+// 
+/*
+	The general theme option styles.
+*/
+@theme-text-color: #fff;
+@theme-text-highlight-color: #fcff00;
+@theme-background-highlight-color: #333;
+
+/*
+	Our theme fonts from fonts.com
+*/
+@theme-font: 'Century Gothic W01';
+@theme-font-bold: 'Century Gothic W01 Bold';
+
+// ------------------------------------ !CORE VARIABLES ------------------------------------
+// Core, non-theme-able options. Includes layout related vars
+// Naming convention should be abstract or related to css properties, not specific to page elements: border-thin: 1px
+// Naming format: @core-[property]
+// 
+@core-content-page-width: 100%;
+
+// ------------------------------------ !CORE LAYOUT ------------------------------------
+// This is THE less file that contains the actual styles of the application. Feel free to modify this to your heart's desire.
+//
+/****************************************************************************************************************************
+   _____ __  ______    __    __       _    _____________       ______  ____  ____ ______   ____________  ____    ___________
+  / ___//  |/  /   |  / /   / /      | |  / /  _/ ____| |     / / __ \/ __ \/ __ /_  __/  / ___/_  __\ \/ / /   / ____/ ___/
+  \__ \/ /|_/ / /| | / /   / /       | | / // // __/  | | /| / / /_/ / / / / /_/ // /     \__ \ / /   \  / /   / __/  \__ \ 
+ ___/ / /  / / ___ |/ /___/ /___     | |/ _/ // /___  | |/ |/ / ____/ /_/ / _, _// /     ___/ // /    / / /___/ /___ ___/ / 
+/____/_/  /_/_/  |_/_____/_____/     |___/___/_____/  |__/|__/_/    \____/_/ |_|/_/     /____//_/    /_/_____/_____//____/  
+                                                                                                                            
+ (MOBILE FIRST)
+****************************************************************************************************************************/
+::-moz-selection{ background: @theme-background-highlight-color; color:@theme-text-highlight-color; text-shadow: none; }
+::selection { background:@theme-background-highlight-color; color:@theme-text-highlight-color; text-shadow: none; }
+a:link { -webkit-tap-highlight-color: @theme-text-highlight-color; }
+
+h1,h2,h3,h4,h5,h6 {
+	font-weight: normal;
+	margin: 0;
+}
+
+a:link,
+a:visited {
+	color: @theme-text-color;
+	text-decoration: none;
+}
+a:hover,
+a:active {
+	color: @theme-text-highlight-color;
+}
+
+html{
+	color: @theme-text-color;
+	/*background: url('../img/stripe_2.png') #000 repeat;*/
+	background: #000;
+	font-family: @theme-font, Arial, sans-serif;
+}
+
+body{}
+
+.content-bucket {
+	padding: 10px;
+}
+
+#wrapper{
+ 	/*background: url('../img/bgGradient.png') repeat-x bottom;*/
+ 	border-right: 1px solid #141414;
+ 	border-left: 1px solid #141414;
+ 	padding: 10px 0px 50px;
+}
+
+header {
+	position: relative;
+	text-align: center;
+
+	h1 {
+		color: lighten(#292929, 5%);
+		line-height: 1;
+
+		span.first-name {
+			font-family: @theme-font-bold, Arial, sans-serif;
+			color: #939393;
+		}
+
+		span.title {
+			font-size: .3em;
+			color: @theme-text-highlight-color;
+			display: block;
+			line-height: 2;
+
+			em {
+				color: lighten(#292929, 25%);
+			}
+		}
+	}
+}
+
+
+header nav {
+	margin: 15px 0;
+}
+header nav ul {
+	margin: 0;
+}
+header nav li {
+	/*float: left;*/
+	display: inline-block;
+}
+header nav li a {
+	font-size: .9em;
+	display: block;
+	padding: 10% 20%;
+}
+
+#welcome {
+	h2 {
+		line-height: 1;
+		font-size: 3em;
+		margin: 10px 0;
+	}
+}
+
+#projects {
+	dt {
+		background: #292929;
+		font-size: 1.75em;
+		line-height: 1.15;
+		padding: 15px 15px;
+	}
+
+	dd {
+		font-size: .85em;
+		margin: 0;
+
+		.technologies {
+			color: #606060;
+		}
+	}
+
+	.screenshots {
+		margin: 0;
+		padding: 0;
+
+		li {
+			list-style-type: none;
+			margin: 2%;
+
+			img {
+				border: 3px solid #fff;
+				display: block;
+				max-width: 100%;
+				margin: 0 auto;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 700px) {
+
+}
+
+/***************************************
+* FLOAT CLEARFIX STYLES
+****************************************/
+/* Use this to clear any floats. Allows for more semantic markup. No need to add "span" or "br" with clears in your markup. */
+/* Target the parent container of the floated element. */
+nav ul:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
