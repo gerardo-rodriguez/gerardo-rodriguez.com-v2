@@ -244,6 +244,9 @@ header nav li a {
   #projects dt {
     padding: 15px 30px;
   }
+  #contact h2 {
+    font-size: 3.7em;
+  }
 }
 /***************************************
 * FLOAT CLEARFIX STYLES
