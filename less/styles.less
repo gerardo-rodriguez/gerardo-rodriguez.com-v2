@@ -43,15 +43,7 @@
 // ------------------------------------ !CORE LAYOUT ------------------------------------
 // This is THE less file that contains the actual styles of the application. Feel free to modify this to your heart's desire.
 //
-/****************************************************************************************************************************
-   _____ __  ______    __    __       _    _____________       ______  ____  ____ ______   ____________  ____    ___________
-  / ___//  |/  /   |  / /   / /      | |  / /  _/ ____| |     / / __ \/ __ \/ __ /_  __/  / ___/_  __\ \/ / /   / ____/ ___/
-  \__ \/ /|_/ / /| | / /   / /       | | / // // __/  | | /| / / /_/ / / / / /_/ // /     \__ \ / /   \  / /   / __/  \__ \ 
- ___/ / /  / / ___ |/ /___/ /___     | |/ _/ // /___  | |/ |/ / ____/ /_/ / _, _// /     ___/ // /    / / /___/ /___ ___/ / 
-/____/_/  /_/_/  |_/_____/_____/     |___/___/_____/  |__/|__/_/    \____/_/ |_|/_/     /____//_/    /_/_____/_____//____/  
-                                                                                                                            
- (MOBILE FIRST)
-****************************************************************************************************************************/
+
 ::-moz-selection{ background: @theme-background-highlight-color; color:@theme-text-highlight-color; text-shadow: none; }
 ::selection { background:@theme-background-highlight-color; color:@theme-text-highlight-color; text-shadow: none; }
 a:link { -webkit-tap-highlight-color: @theme-text-highlight-color; }
@@ -73,7 +65,6 @@ a:active {
 
 html{
 	color: @theme-text-color;
-	/*background: url('../img/stripe_2.png') #000 repeat;*/
 	background: #000;
 	font-family: @theme-font, Arial, sans-serif;
 }
@@ -81,7 +72,28 @@ html{
 body{}
 
 .content-bucket {
-	padding: 10px;
+	padding: 0 15px 30px;
+
+	h2 {
+		line-height: 1;
+		font-size: 2.9em;
+		margin: 10px 0;
+	}
+
+	p {
+		font-size: .9em;
+		line-height: 1.5;
+	}
+
+	a:link,
+	a:visited {
+		border-bottom: 1px dotted @theme-text-color;
+		font-family: @theme-font-bold, Arial, sans-serif;
+	}
+	a:hover,
+	a:active {
+		border-bottom: 1px dotted @theme-text-highlight-color;
+	}
 }
 
 #wrapper{
@@ -120,6 +132,8 @@ header {
 
 header nav {
 	margin: 15px 0;
+	border-top: 1px solid #333;
+	border-bottom: 1px solid #333;
 }
 header nav ul {
 	margin: 0;
@@ -131,28 +145,62 @@ header nav li {
 header nav li a {
 	font-size: .9em;
 	display: block;
-	padding: 10% 20%;
-}
-
-#welcome {
-	h2 {
-		line-height: 1;
-		font-size: 3em;
-		margin: 10px 0;
-	}
+	padding: 15px 10px;
+	font-family: @theme-font-bold, Arial, sans-serif;
 }
 
 #projects {
+
+	&.interactive {
+		dt {
+			cursor: pointer;
+			/*padding-right: 80px;*/
+
+			&.active {
+				background: #444;
+			}
+
+			&.active:hover {
+				cursor: default;
+				background: #444;
+
+				.tip {
+					display: none;
+				}
+			}
+
+			&:hover {
+				background: #444;
+
+				.tip {
+					display: block;
+					position: absolute;
+					right: 5px;
+					top: 5px;
+					font-size: .4em;
+				}
+			}
+		}
+	}
+
 	dt {
 		background: #292929;
 		font-size: 1.75em;
 		line-height: 1.15;
 		padding: 15px 15px;
+		border-top: 1px solid #444;
+		position: relative;
+		margin-bottom: 5px;
+
+		.tip {
+			display: none;
+		}
 	}
 
 	dd {
-		font-size: .85em;
+		/*font-size: .85em;*/
 		margin: 0;
+		.box-sizing(border-box);
 
 		.technologies {
 			color: #606060;
@@ -165,20 +213,61 @@ header nav li a {
 
 		li {
 			list-style-type: none;
-			margin: 2%;
+			margin: 2% 0;
 
 			img {
 				border: 3px solid #fff;
 				display: block;
+				.box-sizing(border-box);
 				max-width: 100%;
 				margin: 0 auto;
 			}
 		}
 	}
+
+	.inline-nav {
+		display: block;
+		text-align: center;
+		border-bottom: none;
+	}
 }
 
-@media only screen and (min-width: 700px) {
+#contact {
+	margin-top: 40px;
+}
 
+@media only screen and (min-width: 570px) {
+
+	html {
+		background: url('../img/stripe_2.png') #000 repeat;
+	}
+
+	#wrapper {
+		background: #000;
+		.box-shadow(#000, 0, 0, 10px, 2px);
+		width: 570px;
+		margin: 0 auto;
+	}
+
+	.content-bucket {
+		padding: 1px 30px 50px;
+
+		h2 {
+			font-size: 4em;
+		}
+	}
+
+	header nav {
+		margin-bottom: 30px;
+	}
+
+	header nav li a {
+		font-family: @theme-font, Arial, sans-serif;
+	}
+
+	#projects dt {
+		padding: 15px 30px;
+	}
 }
 
 /***************************************

@@ -40,15 +40,6 @@
 /*
 	Our theme fonts from fonts.com
 */
-/****************************************************************************************************************************
-   _____ __  ______    __    __       _    _____________       ______  ____  ____ ______   ____________  ____    ___________
-  / ___//  |/  /   |  / /   / /      | |  / /  _/ ____| |     / / __ \/ __ \/ __ /_  __/  / ___/_  __\ \/ / /   / ____/ ___/
-  \__ \/ /|_/ / /| | / /   / /       | | / // // __/  | | /| / / /_/ / / / / /_/ // /     \__ \ / /   \  / /   / __/  \__ \ 
- ___/ / /  / / ___ |/ /___/ /___     | |/ _/ // /___  | |/ |/ / ____/ /_/ / _, _// /     ___/ // /    / / /___/ /___ ___/ / 
-/____/_/  /_/_/  |_/_____/_____/     |___/___/_____/  |__/|__/_/    \____/_/ |_|/_/     /____//_/    /_/_____/_____//____/  
-                                                                                                                            
- (MOBILE FIRST)
-****************************************************************************************************************************/
 ::-moz-selection {
   background: #333333;
   color: #fcff00;
@@ -82,13 +73,29 @@ a:active {
 }
 html {
   color: #ffffff;
-  /*background: url('../img/stripe_2.png') #000 repeat;*/
-
   background: #000;
   font-family: 'Century Gothic W01', Arial, sans-serif;
 }
 .content-bucket {
-  padding: 10px;
+  padding: 0 15px 30px;
+}
+.content-bucket h2 {
+  line-height: 1;
+  font-size: 2.9em;
+  margin: 10px 0;
+}
+.content-bucket p {
+  font-size: .9em;
+  line-height: 1.5;
+}
+.content-bucket a:link,
+.content-bucket a:visited {
+  border-bottom: 1px dotted #ffffff;
+  font-family: 'Century Gothic W01 Bold', Arial, sans-serif;
+}
+.content-bucket a:hover,
+.content-bucket a:active {
+  border-bottom: 1px dotted #fcff00;
 }
 #wrapper {
   /*background: url('../img/bgGradient.png') repeat-x bottom;*/
@@ -120,6 +127,8 @@ header h1 span.title em {
 }
 header nav {
   margin: 15px 0;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
 }
 header nav ul {
   margin: 0;
@@ -132,22 +141,53 @@ header nav li {
 header nav li a {
   font-size: .9em;
   display: block;
-  padding: 10% 20%;
+  padding: 15px 10px;
+  font-family: 'Century Gothic W01 Bold', Arial, sans-serif;
 }
-#welcome h2 {
-  line-height: 1;
-  font-size: 3em;
-  margin: 10px 0;
+#projects.interactive dt {
+  cursor: pointer;
+  /*padding-right: 80px;*/
+
+}
+#projects.interactive dt.active {
+  background: #444;
+}
+#projects.interactive dt.active:hover {
+  cursor: default;
+  background: #444;
+}
+#projects.interactive dt.active:hover .tip {
+  display: none;
+}
+#projects.interactive dt:hover {
+  background: #444;
+}
+#projects.interactive dt:hover .tip {
+  display: block;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: .4em;
 }
 #projects dt {
   background: #292929;
   font-size: 1.75em;
   line-height: 1.15;
   padding: 15px 15px;
+  border-top: 1px solid #444;
+  position: relative;
+  margin-bottom: 5px;
+}
+#projects dt .tip {
+  display: none;
 }
 #projects dd {
-  font-size: .85em;
+  /*font-size: .85em;*/
+
   margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 #projects dd .technologies {
   color: #606060;
@@ -158,16 +198,52 @@ header nav li a {
 }
 #projects .screenshots li {
   list-style-type: none;
-  margin: 2%;
+  margin: 2% 0;
 }
 #projects .screenshots li img {
   border: 3px solid #fff;
   display: block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   max-width: 100%;
   margin: 0 auto;
 }
-@media only screen and (min-width: 700px) {
-  
+#projects .inline-nav {
+  display: block;
+  text-align: center;
+  border-bottom: none;
+}
+#contact {
+  margin-top: 40px;
+}
+@media only screen and (min-width: 570px) {
+  html {
+    background: url('../img/stripe_2.png') #000000 repeat;
+  }
+  #wrapper {
+    background: #000;
+    -webkit-box-shadow: #000000 0 0 10px 2px;
+    -moz-box-shadow: #000000 0 0 10px 2px;
+    box-shadow: #000000 0 0 10px 2px;
+    width: 570px;
+    margin: 0 auto;
+  }
+  .content-bucket {
+    padding: 1px 30px 50px;
+  }
+  .content-bucket h2 {
+    font-size: 4em;
+  }
+  header nav {
+    margin-bottom: 30px;
+  }
+  header nav li a {
+    font-family: 'Century Gothic W01', Arial, sans-serif;
+  }
+  #projects dt {
+    padding: 15px 30px;
+  }
 }
 /***************************************
 * FLOAT CLEARFIX STYLES
