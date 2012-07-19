@@ -21,6 +21,13 @@ $(document).ready(function() {
 			$projectHeaders.removeClass('active');
 			$projectInfoPanels.removeClass('active').slideUp('fast');
 
+			$projectInfoPanels.children().css('position','relative');
+
+			$target.children().each(function(index, item){
+				TweenMax.from(item, 1, {delay:.35*index, css:{/*top:"200px",*/opacity:0}, ease:Expo.easeOut});
+			});
+
+
 			$this.parent().addClass('active');
 			$target.addClass('active').slideDown('fast', function(){
 				var yPos = $this.offset()['top'];
