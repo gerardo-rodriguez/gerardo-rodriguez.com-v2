@@ -7,21 +7,41 @@ $(document).ready(function() {
 	var $projectInfoPanels = $('#projects dd').hide();
 	var $projectHeaders = $('#projects dt');
 
-	$('#projects dt').on('click', function() {
+	// Inject an anchor tag to use within our headers
+	$projectHeaders.wrapInner('<a href="#" />');
+
+	// Setup the accordian navigation for the projects
+	$('#projects dt a').on('click', function(e) {
+		e.preventDefault();
+
 		var $this = $(this);
-		var $target =  $this.next();
+		var $target =  $this.parent().next();
 
 		if(!$target.hasClass('active')){
 			$projectHeaders.removeClass('active');
 			$projectInfoPanels.removeClass('active').slideUp('fast');
 
-			$this.addClass('active');
+			$this.parent().addClass('active');
 			$target.addClass('active').slideDown('fast', function(){
 				var yPos = $this.offset()['top'];
-				TweenMax.to(window, .75, {scrollTo:{y:yPos}, ease:Expo.easeOut});
+				TweenMax.to(window, .6, {scrollTo:{y:yPos}, ease:Expo.easeOut});
 			});
 		}
+	});
 
-		return false;
+
+	// Setup the main nav to scrollTo sections
+	$('a','#site-nav').on('click', function(e){
+		e.preventDefault();
+
+		var yPos = $( $(e.currentTarget).attr('href') ).offset()['top'];
+		TweenMax.to(window, .6, {scrollTo:{y:yPos}, ease:Expo.easeOut});
+	});
+
+	// Setup the back to top links
+	$('.back-to-top').on('click', function(e){
+		e.preventDefault();
+
+		TweenMax.to(window, .6, {scrollTo:{y:0}, ease:Expo.easeOut});
 	});
 });

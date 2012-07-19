@@ -144,36 +144,47 @@ header nav li a {
   padding: 15px 10px;
   font-family: 'Century Gothic W01 Bold', Arial, sans-serif;
 }
-#projects.interactive dt {
-  cursor: pointer;
-  /*padding-right: 80px;*/
+header nav li a:focus {
+  color: #fcff00;
+  outline: none;
+}
+#projects {
+  /* START */
+
+  /* These styles come into play only when the projects have js interactivity. */
+
+  /* END */
 
 }
-#projects.interactive dt.active {
+#projects.interactive dt {
+  padding: 0;
+}
+#projects.interactive dt.active a:link,
+#projects.interactive dt.active a:visited {
+  color: #fff;
   background: #444;
 }
-#projects.interactive dt.active:hover {
-  cursor: default;
-  background: #444;
-}
-#projects.interactive dt.active:hover .tip {
-  display: none;
-}
-#projects.interactive dt:hover {
-  background: #444;
-}
-#projects.interactive dt:hover .tip {
+#projects.interactive dt a:link,
+#projects.interactive dt a:visited {
+  color: #888;
   display: block;
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  font-size: .4em;
+  padding: 15px;
+}
+#projects.interactive dt a:hover,
+#projects.interactive dt a:active {
+  background: #444;
+  color: #fff;
+}
+#projects.interactive dt a:focus {
+  outline: none;
+  color: #fff;
+  background: #444;
 }
 #projects dt {
   background: #292929;
   font-size: 1.75em;
   line-height: 1.15;
-  padding: 15px 15px;
+  padding: 15px;
   border-top: 1px solid #444;
   position: relative;
   margin-bottom: 5px;
@@ -213,6 +224,9 @@ header nav li a {
   display: block;
   text-align: center;
   border-bottom: none;
+}
+#projects .inline-nav:focus {
+  outline: none;
 }
 #contact {
   margin-top: 40px;

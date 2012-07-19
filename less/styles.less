@@ -147,47 +147,55 @@ header nav li a {
 	display: block;
 	padding: 15px 10px;
 	font-family: @theme-font-bold, Arial, sans-serif;
+
+	&:focus {
+		color: @theme-text-highlight-color;
+		outline: none;
+	}
 }
 
 #projects {
 
+	/* START */
+	/* These styles come into play only when the projects have js interactivity. */
 	&.interactive {
 		dt {
-			cursor: pointer;
-			/*padding-right: 80px;*/
+			padding: 0;
 
 			&.active {
-				background: #444;
+
+				a:link,
+				a:visited {
+					color: #fff;
+					background: #444;
+				}				
 			}
 
-			&.active:hover {
-				cursor: default;
-				background: #444;
-
-				.tip {
-					display: none;
-				}
+			a:link,
+			a:visited {
+				color: #888;
+				display: block;
+				padding: 15px;
 			}
-
-			&:hover {
+			a:hover,
+			a:active {
 				background: #444;
-
-				.tip {
-					display: block;
-					position: absolute;
-					right: 5px;
-					top: 5px;
-					font-size: .4em;
-				}
+				color: #fff;
+			}
+			a:focus {
+				outline: none;
+				color: #fff;
+				background: #444;
 			}
 		}
 	}
+	/* END */
 
 	dt {
 		background: #292929;
 		font-size: 1.75em;
 		line-height: 1.15;
-		padding: 15px 15px;
+		padding: 15px;
 		border-top: 1px solid #444;
 		position: relative;
 		margin-bottom: 5px;
@@ -229,6 +237,10 @@ header nav li a {
 		display: block;
 		text-align: center;
 		border-bottom: none;
+
+		&:focus {
+			outline: none;
+		}
 	}
 }
 
