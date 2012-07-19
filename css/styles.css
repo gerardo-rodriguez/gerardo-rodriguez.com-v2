@@ -203,6 +203,9 @@ header nav li a:focus {
 #projects dd .technologies {
   color: #606060;
 }
+#projects dd .site-link {
+  text-transform: uppercase;
+}
 #projects .screenshots {
   margin: 0;
   padding: 0;
@@ -210,6 +213,9 @@ header nav li a:focus {
 #projects .screenshots li {
   list-style-type: none;
   margin: 2% 0;
+}
+#projects .screenshots li h3 {
+  margin: 20px 0 5px;
 }
 #projects .screenshots li img {
   border: 3px solid #fff;
